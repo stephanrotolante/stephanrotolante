@@ -48,7 +48,11 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run build"
+      "post-push": [
+        "npm run build",
+        "git add . && git commit -m \"updating site\"",
+        "git push origin gh-pages "
+      ]
     }
   }
 }
