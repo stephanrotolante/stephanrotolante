@@ -1,0 +1,39 @@
+.under {
+  height: 0%;
+  width: 100%;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: nowrap;
+  align-items: center;
+  background-color: red;
+}
+
+.top {
+  overflow: hidden;
+  background-color: green;
+  height: 100%;
+  width: 100%;
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+.main {
+  display: inline-block;
+  transition: all 0.75s ease;
+  height: 500px;
+  width: 100%;
+}
+
+.main:hover .under {
+  height: 100%;
+}
+
+.main:hover .top {
+  height: 0%;
+}

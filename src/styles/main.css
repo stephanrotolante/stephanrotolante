@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.under {
+  height: 0%;
+  width: 100%;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.top {
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  transition: all 0.4s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+.main {
+  display: inline-block;
+  transition: all 0.75s ease;
+  height: 500px;
+  width: 100%;
+}
+
+.main:hover .under {
+  height: 100%;
+}
+
+.main:hover .top {
+  height: 0%;
+}
+
+.about {
+  background-image: url("../assests/team.jpg");
+}
+
+.image-mods {
+  filter: blur(1px);
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.stack {
+  background-image: url("../assests/stack.jpg");
+}
+
+.projects {
+  background-image: url("../assests/projects.png");
+}
+.bg-text {
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  border: 3px solid #f1f1f1;
+  width: 50%;
+  font-weight: bold;
+  padding-top: 5px;
+  position: absolute;
+  /* top: 50%;
+  left: 50%; */
+  z-index: 2;
+  text-align: center;
+}
