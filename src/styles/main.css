@@ -34,12 +34,10 @@
   position: relative;
 }
 
-.main:hover .under,
 .main[data-open="1"] .under {
   height: 100%;
 }
 
-.main:hover .top,
 .main[data-open="1"] .top {
   height: 0%;
 }
@@ -95,5 +93,15 @@
 @media screen and (min-width: 1024px) {
   .close {
     display: none;
+  }
+}
+
+@media (hover: hover) {
+  .main:hover .top {
+    height: 0%;
+  }
+
+  .main:hover .under {
+    height: 100%;
   }
 }
