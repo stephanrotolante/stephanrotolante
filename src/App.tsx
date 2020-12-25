@@ -6,31 +6,45 @@ import axios from "axios";
 import "./styles/main.css";
 import "tailwindcss/tailwind.css";
 
-// sm:w-full md:w-mc lg:w-mc
 const App: React.FunctionComponent = () => {
   const ref = useRef(1);
   const [gitHubData, setGitHubData] = useState<any[]>([]);
+  const [triedFetching, setTriedFetching] = useState<boolean>(false);
 
   const isMissingData = gitHubData.length === 0;
   console.log(`Renders: ${ref.current}`);
   useEffect(() => {
-    const fetchGitHubData = async () => {
-      const { data } = await axios.get(
-        "https://api.github.com/users/stephanrotolante/repos?per_page=100"
-      );
-
-      setGitHubData(data);
-    };
     ref.current += 1;
+    const fetchGitHubData = async () => {
+      try {
+        const { data } = await axios.get(
+          "https://api.github.com/users/stephanrotolante/repos?per_page=100"
+        );
 
-    if (isMissingData) {
+        setGitHubData(data);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setTriedFetching(true);
+      }
+    };
+
+    if (!triedFetching) {
       fetchGitHubData();
     }
   }, []);
 
-  if (isMissingData) {
-    console.log("Missing");
-    return null;
+  if (!triedFetching) {
+    return (
+      <div className="flex flex-row justify-center items-center w-full h-full">
+        <div className="lds-ellipsis">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -44,13 +58,15 @@ const App: React.FunctionComponent = () => {
             This is the page about my stack
           </Card>
 
-          <Card title="Projects" image="projects">
-            <div style={{ overflow: "auto" }}>
-              {gitHubData.map((project) => (
-                <GitHubProject {...project} />
-              ))}
-            </div>
-          </Card>
+          {isMissingData && (
+            <Card title="Projects" image="projects">
+              <div style={{ overflow: "auto" }}>
+                {gitHubData.map((project) => (
+                  <GitHubProject {...project} />
+                ))}
+              </div>
+            </Card>
+          )}
         </div>
       </div>
       <div className="flex flex-row justify-center bottom-0 left-0 sticky z-50 w-full p-1 bg-white bg-opacity-80">
