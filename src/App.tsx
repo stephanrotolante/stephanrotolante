@@ -46,7 +46,6 @@ const App: React.FunctionComponent = () => {
       </div>
     );
   }
-
   return (
     <div className="w-screen h-screen">
       <div className="flex flex-row justify-center">
@@ -58,7 +57,7 @@ const App: React.FunctionComponent = () => {
             This is the page about my stack
           </Card>
 
-          {isMissingData && (
+          {!isMissingData && (
             <Card title="Projects" image="projects">
               <div style={{ overflow: "auto" }}>
                 {gitHubData.map((project) => (
