@@ -6,7 +6,7 @@
   height: 0%;
   width: 100%;
   overflow: hidden;
-  transition: all 0.4s ease;
+  transition: all 0.75s ease;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -18,7 +18,7 @@
   overflow: hidden;
   height: 100%;
   width: 100%;
-  transition: all 0.4s ease;
+  transition: all 0.75s ease;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -31,13 +31,16 @@
   transition: all 0.75s ease;
   height: 500px;
   width: 100%;
+  position: relative;
 }
 
-.main:hover .under {
+.main:hover .under,
+.main[data-open="1"] .under {
   height: 100%;
 }
 
-.main:hover .top {
+.main:hover .top,
+.main[data-open="1"] .top {
   height: 0%;
 }
 
@@ -73,4 +76,24 @@
   left: 50%; */
   z-index: 2;
   text-align: center;
+}
+
+.close {
+  overflow: hidden;
+  height: 0px;
+  width: 0px;
+}
+.main[data-open="1"] .under .close {
+  position: absolute;
+  z-index: 2;
+  top: 10px;
+  height: 20px;
+  width: 80px;
+  left: calc(100% - 80px);
+}
+
+@media screen and (min-width: 1024px) {
+  .close {
+    display: none;
+  }
 }

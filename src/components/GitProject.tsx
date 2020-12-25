@@ -9,9 +9,6 @@ const GitHubProject: React.FunctionComponent<GitHubProjectType> = ({
   description,
   html_url,
 }) => {
-  // name description html_url
-
-  console.log(name, description);
   return (
     <div className="flex flex-col p-1 w-full">
       <a href={html_url} target="_blank">

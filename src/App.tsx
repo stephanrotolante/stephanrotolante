@@ -20,7 +20,6 @@ const App: React.FunctionComponent = () => {
       );
 
       setGitHubData(data);
-      console.log(data);
     };
     ref.current += 1;
 
