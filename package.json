@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack && typedoc --out docs src && touch docs/.nojekyll",
+    "build": "webpack && touch docs/.nojekyll",
     "start": "webpack serve"
   },
   "repository": {
