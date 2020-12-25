@@ -47,6 +47,8 @@
     "tailwindcss": "^2.0.2"
   },
   "husky": {
-    "pre-push": "echo 1"
+    "pre-push": [
+      "npm run build"
+    ]
   }
 }
