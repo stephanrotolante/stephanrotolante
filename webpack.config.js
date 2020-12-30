@@ -23,12 +23,12 @@ module.exports = {
     rules: [
       {
         test: /\.(png|jpe?g|gif)$/i,
-        use: [
-          {
-            loader: "file-loader",
-          },
-        ],
+        loader: "file-loader",
       },
+      // {
+      //   test: /\.(png|svg|jpg|jpeg|gif)$/i,
+      //   type: 'asset/resource',
+      // },
       {
         test: /\.tsx?$/,
         use: "ts-loader",

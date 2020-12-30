@@ -43,7 +43,7 @@
 }
 
 .about {
-  background-image: url("../assests/team.jpg");
+  background-image: url("../assets/card/team.jpg");
 }
 
 .image-mods {
@@ -56,10 +56,10 @@
 }
 
 .stack {
-  background-image: url("../assests/stack.jpg");
+  background-image: url("../assets/card/stack.jpg");
 }
 .projects {
-  background-image: url("../assests/projects.png");
+  background-image: url("../assets/card/projects.png");
 }
 .bg-text {
   background-color: rgb(0, 0, 0); /* Fallback color */

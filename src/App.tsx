@@ -1,10 +1,50 @@
 import React, { useEffect, useState, useRef } from "react";
-import { Card, GitHubProject } from "./components";
+import { Card, GitHubProject, Stack } from "./components";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import axios from "axios";
+import { stackConstants } from "./stack-constants";
 
 import "./styles/main.css";
 import "tailwindcss/tailwind.css";
+
+const shuffle = (array: { label: string; src: string }[]) => {
+  let counter = array.length;
+
+  // While there are elements in the array
+  while (counter > 0) {
+    // Pick a random index
+    let index = Math.floor(Math.random() * counter);
+
+    // Decrease counter by 1
+    counter--;
+
+    // And swap the last element with it
+    let temp = array[counter];
+    array[counter] = array[index];
+    array[index] = temp;
+  }
+
+  return array;
+};
+
+const displayStack = () => {
+  const stack = shuffle(stackConstants);
+  const components = [];
+
+  for (let i = 0; i < stack.length; i += 2) {
+    components.push(
+      <div
+        className={`flex flex-row w-full ${
+          !!stack[i + 1] ? "justify-around" : "justify-start"
+        } mt-5`}
+      >
+        <Stack {...stack[i]} />
+        {stack[i + 1] && <Stack {...stack[i + 1]} />}
+      </div>
+    );
+  }
+  return components;
+};
 
 const App: React.FunctionComponent = () => {
   const ref = useRef(1);
@@ -15,6 +55,10 @@ const App: React.FunctionComponent = () => {
   console.log(`Renders: ${ref.current}`);
   useEffect(() => {
     ref.current += 1;
+  });
+
+  displayStack();
+  useEffect(() => {
     const fetchGitHubData = async () => {
       try {
         const { data } = await axios.get(
@@ -54,16 +98,14 @@ const App: React.FunctionComponent = () => {
             this is the page about me
           </Card>
           <Card title="Stack" image="stack">
-            This is the page about my stack
+            {displayStack()}
           </Card>
 
           {!isMissingData && (
             <Card title="Projects" image="projects">
-              <div style={{ overflow: "auto" }}>
-                {gitHubData.map((project) => (
-                  <GitHubProject {...project} />
-                ))}
-              </div>
+              {gitHubData.map((project) => (
+                <GitHubProject {...project} />
+              ))}
             </Card>
           )}
         </div>
