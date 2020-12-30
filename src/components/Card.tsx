@@ -38,7 +38,7 @@ const Card: React.FunctionComponent<CardComponentType> = ({
               Close <FaWindowClose className="inline-block ml-1" />
             </div>
           )}
-          <div className="overflow-y-auto w-full">{children}</div>
+          <div className="overflow-y-auto w-full h-full">{children}</div>
         </div>
       </div>
     </div>

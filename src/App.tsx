@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { Card, GitHubProject, Stack } from "./components";
+import { Card, GitHubProject, Stack, About } from "./components";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import axios from "axios";
 import { stackConstants } from "./stack-constants";
@@ -36,7 +36,7 @@ const displayStack = () => {
       <div
         className={`flex flex-row w-full ${
           !!stack[i + 1] ? "justify-around" : "justify-start"
-        } mt-5`}
+        } mt-5 p-1`}
       >
         <Stack {...stack[i]} />
         {stack[i + 1] && <Stack {...stack[i + 1]} />}
@@ -95,7 +95,7 @@ const App: React.FunctionComponent = () => {
       <div className="flex flex-row justify-center">
         <div className="flex flex-row flex-wrap w-full sm:w-full md:w-full lg:w-mc">
           <Card title="About" image="about">
-            this is the page about me
+            <About />
           </Card>
           <Card title="Stack" image="stack">
             {displayStack()}
@@ -113,7 +113,7 @@ const App: React.FunctionComponent = () => {
       <div className="flex flex-row justify-center bottom-0 left-0 sticky z-50 w-full p-1 bg-white bg-opacity-80">
         <div className="flex flex-row justify-around w-full sm:w-full md:w-mc lg:w-mc">
           <div className="hover:text-mail-100 text-mail-000 duration-300">
-            <a href="" target="_blank">
+            <a href="mailto:stephanrotolante@gmail.com" target="_blank">
               <FaEnvelope size="1.75em" />
             </a>
           </div>
