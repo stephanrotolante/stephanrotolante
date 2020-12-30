@@ -10,7 +10,7 @@ const About = () => {
         width={200}
         className="inline-block rounded-full"
       />
-      <div className="mt-2">
+      <div className="mt-2 p-6">
         Hey! My name is Stephan Rotolante. I'm a mid level software engineer
         living out of sunny Jacksonville Florida. I love playing sports and am
         always trying to learn new things! Feel free to message me if you have

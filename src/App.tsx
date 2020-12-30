@@ -57,7 +57,6 @@ const App: React.FunctionComponent = () => {
     ref.current += 1;
   });
 
-  displayStack();
   useEffect(() => {
     const fetchGitHubData = async () => {
       try {
@@ -98,7 +97,7 @@ const App: React.FunctionComponent = () => {
             <About />
           </Card>
           <Card title="Stack" image="stack">
-            {displayStack()}
+            <div className="px-3">{displayStack()}</div>
           </Card>
 
           {!isMissingData && (
