@@ -93,15 +93,15 @@ const App: React.FunctionComponent = () => {
     <div className="w-screen h-screen">
       <div className="flex flex-row justify-center">
         <div className="flex flex-row flex-wrap w-full sm:w-full md:w-full lg:w-mc">
-          <Card title="About" image="about">
+          <Card title="About" image="about" className="mr-auto">
             <About />
           </Card>
-          <Card title="Stack" image="stack">
+          <Card title="Stack" image="stack" className="ml-auto">
             <div className="px-3">{displayStack()}</div>
           </Card>
 
           {!isMissingData && (
-            <Card title="Projects" image="projects">
+            <Card title="Projects" image="projects" className="mr-auto">
               {gitHubData.map((project) => (
                 <GitHubProject {...project} />
               ))}

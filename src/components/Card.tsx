@@ -5,11 +5,13 @@ type CardComponentType = {
   children?: React.ReactNode;
   title: string;
   image: string;
+  className?: string;
 };
 const Card: React.FunctionComponent<CardComponentType> = ({
   children,
   title,
   image,
+  className,
 }) => {
   const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
     navigator.userAgent
@@ -18,13 +20,10 @@ const Card: React.FunctionComponent<CardComponentType> = ({
 
   return (
     <div
-      className="w-full sm:w-full p-1 md:w-full lg:w-1/2 duration-1000"
+      className={`w-full sm:w-full md:w-full lg:w-cus duration-1000 shadow-rst hover:shadow-hv border rounded mt-5 ${className}`}
       onClick={() => !isOpen && setIsOpen(true)}
     >
-      <div
-        className="border rounded duration-1000 main"
-        data-open={isOpen ? "1" : "0"}
-      >
+      <div className="duration-1000 main" data-open={isOpen ? "1" : "0"}>
         <div className="top">
           <div className={`${image} image-mods`}></div>
           <div className="bg-text">{title}</div>
