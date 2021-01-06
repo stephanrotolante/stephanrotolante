@@ -96,7 +96,16 @@
   }
 }
 
+@media (hover: none) {
+  .scaled[data-open="1"] {
+    transform: scale(1.02);
+  }
+}
 @media (hover: hover) {
+  .scaled:hover {
+    transform: scale(1.02);
+  }
+
   .main:hover .top {
     height: 0%;
   }

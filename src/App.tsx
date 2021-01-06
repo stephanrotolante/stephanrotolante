@@ -92,7 +92,7 @@ const App: React.FunctionComponent = () => {
   return (
     <div className="w-screen h-screen">
       <div className="flex flex-row justify-center">
-        <div className="flex flex-row flex-wrap w-full sm:w-full md:w-full lg:w-mc">
+        <div className="flex flex-row flex-wrap w-full sm:w-full md:w-full lg:w-mc px-3  lg:px-0 md:px-0">
           <Card title="About" image="about" className="mr-auto">
             <About />
           </Card>

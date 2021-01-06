@@ -27,9 +27,9 @@ module.exports = {
       hv: "0px 0px 10px 5px rgba(0,0,0,0.75)",
       rst: "0px 0px 9px -3px rgba(0,0,0,0.75)",
     },
-    // scale: {
-    //   101: "1.25",
-    // },
+    scale: {
+      101: "1.02",
+    },
   },
   variants: {
     scale: ["responsive", "hover", "focus", "active", "group-hover"],
