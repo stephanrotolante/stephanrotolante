@@ -21,7 +21,7 @@ const Card: React.FunctionComponent<CardComponentType> = ({
   return (
     <div
       data-open={isOpen ? "1" : "0"}
-      className={`w-full sm:w-full md:w-full lg:w-cus duration-1000 shadow-rst hover:shadow-hv border rounded mt-5 ${className} scaled`}
+      className={`w-full sm:w-full md:w-full lg:w-cus duration-1000 shadow-rst hover-hover:hover:shadow-hv border rounded mt-5 ${className} scaled`}
       onClick={() => !isOpen && setIsOpen(true)}
     >
       <div className="duration-1000 main" data-open={isOpen ? "1" : "0"}>
