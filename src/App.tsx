@@ -96,7 +96,7 @@ const App: React.FunctionComponent = () => {
           <Card title="About" image="about" className="mr-auto">
             <About />
           </Card>
-          <Card title="Stack" image="stack" className="ml-auto">
+          <Card title="Stack" className="ml-auto" images={stackConstants}>
             <div className="px-3">{displayStack()}</div>
           </Card>
 

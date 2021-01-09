@@ -54,9 +54,34 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+:root {
+  --top: 0px;
+  --left: 0px;
+  --org-left: 0px;
+  --org-top: 0px;
+  --delay: 2s;
+}
 
-.stack {
-  background-image: url("../assets/card/stack.jpg");
+.animantions {
+  animation: moveX 5s var(--delay) infinite alternate,
+    moveY 5s var(--delay) infinite alternate;
+}
+@keyframes moveX {
+  from {
+    left: var(--org-left);
+  }
+  to {
+    left: var(--left);
+  }
+}
+
+@keyframes moveY {
+  from {
+    top: var(--org-top);
+  }
+  to {
+    top: var(--top);
+  }
 }
 .projects {
   background-image: url("../assets/card/projects.png");
@@ -88,6 +113,10 @@
   height: 20px;
   width: 80px;
   left: calc(100% - 80px);
+}
+
+.stack-image {
+  position: absolute;
 }
 
 @media screen and (min-width: 1024px) {
