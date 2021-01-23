@@ -10,38 +10,24 @@ type CardComponentType = {
 };
 
 const updateCss = (height: number, width: number) => {
-  // document.documentElement.style.setProperty(
-  //   "--left",
-  //   Math.random() * width + "px"
-  // );
-  // document.documentElement.style.setProperty(
-  //   "--top",
-  //   Math.random() * height + "px"
-  // );
   const elements = document.getElementsByClassName("stack-image");
   for (var i = 0; i < elements.length; i += 1) {
     const { style } = elements[i] as any;
 
-    const styles = elements[i].getAttribute("style")?.split(";") || [];
-    style.setProperty(
-      "--org-left",
-      styles
-        .find((s) => s.includes("left:"))
-        ?.split(":")[1]
-        .trim()
-    );
-    style.setProperty(
-      "--org-top",
-      styles
-        .find((s) => s.includes("top:"))
-        ?.split(":")[1]
-        .trim()
-    );
+    style.setProperty("--pw", Math.round(width) + "px");
 
-    style.setProperty("--delay", Math.random() * 10 + "s");
-    style.setProperty("--top", Math.random() * height + "px");
-    style.setProperty("--left", Math.random() * width + "px");
+    style.setProperty("--delay", i + "s");
   }
+};
+
+const generateAnimation = (index: number): string => {
+  if (-1 < index && index < 7) {
+    return "inner";
+  } else if (6 < index) {
+    return "outer";
+  }
+
+  return "";
 };
 const Card: React.FunctionComponent<CardComponentType> = ({
   children,
@@ -105,15 +91,17 @@ const Card: React.FunctionComponent<CardComponentType> = ({
     >
       <div className="duration-1000 main" data-open={isOpen ? "1" : "0"}>
         <div ref={ref} className="top">
-          <div className={`${image} image-mods `}>
-            {images.map(({ src }) => {
+          <div className={`${image} image-mods`}>
+            {images.map(({ src }, index) => {
               return (
                 <img
                   src={src}
-                  className="stack-image animantions h-12 w-12 sm:w-14 sm:h-14 md:w-4 md:h-14 lg:w-16 lg:h-16"
+                  className={`stack-image animantions-${generateAnimation(
+                    index
+                  )} h-12 w-12 sm:w-14 sm:h-14 md:w-4 md:h-14 lg:w-16 lg:h-16 absolute`}
                   style={{
-                    left: Math.random() * dimesnions.width,
-                    top: Math.random() * dimesnions.height,
+                    left: "46%", // Math.random() * dimesnions.width,
+                    top: "50%", // Math.random() * dimesnions.height,
                   }}
                 />
               );

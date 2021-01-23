@@ -13,7 +13,9 @@
   flex-wrap: nowrap;
   align-items: center;
 }
-
+.stack-image {
+  opacity: 0;
+}
 .top {
   overflow: hidden;
   height: 100%;
@@ -55,18 +57,40 @@
   background-size: cover;
 }
 :root {
-  --top: 0px;
-  --left: 0px;
-  --org-left: 0px;
-  --org-top: 0px;
-  --delay: 2s;
+  --pw: 500px;
+  --delay: 99s;
 }
 
-.animantions {
-  animation: moveX 5s var(--delay) infinite alternate,
-    moveY 5s var(--delay) infinite alternate;
+.animantions-inner {
+  animation: innerCircle 7s var(--delay) infinite linear;
 }
-@keyframes moveX {
+.animantions-outer {
+  /* animation: moveX 5s var(--delay) infinite alternate,
+    moveY 5s var(--delay) infinite alternate; */
+  animation: outerCircle 9.75s var(--delay) infinite linear;
+}
+
+@keyframes innerCircle {
+  from {
+    opacity: 1;
+    transform: rotate(0deg) translateX(calc(var(--pw) * 0.2)) rotate(0deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(-360deg) translateX(calc(var(--pw) * 0.2)) rotate(360deg);
+  }
+}
+@keyframes outerCircle {
+  from {
+    opacity: 1;
+    transform: rotate(0deg) translateX(calc(var(--pw) * 0.4)) rotate(0deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(360deg) translateX(calc(var(--pw) * 0.4)) rotate(-360deg);
+  }
+}
+/* @keyframes moveX {
   from {
     left: var(--org-left);
   }
@@ -82,7 +106,7 @@
   to {
     top: var(--top);
   }
-}
+} */
 .projects {
   background-image: url("../assets/card/projects.png");
 }
@@ -113,10 +137,6 @@
   height: 20px;
   width: 80px;
   left: calc(100% - 80px);
-}
-
-.stack-image {
-  position: absolute;
 }
 
 @media screen and (min-width: 1024px) {
