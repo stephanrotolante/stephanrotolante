@@ -12,14 +12,14 @@ const About = () => {
       />
       <div className="mt-2 p-6">
         My name is Stephan Rotolante. I'm a Software Engineer living out of
-        Jacksonville Florida. I consider myself an active person, I love playing
-        Lacrosse, Basketball, and Hockey (Roller). You can always find me
-        learning something to get a new tool under my belt. I am very proficient
-        in front-end technologes such as ReactJS, Css, HTML, TailwindCSS, and
-        Bootstrap. I have strong undertanding of back-end technologes/tools like
-        NodeJS, Express, HapiJS, Docker/Kubernetes. I am very comfortable with
-        AWS, whether it be creating/deploying EC2S, S3, AWS Batch, Lambda,
-        etc...
+        Jacksonville, Florida. I consider myself an active person. I love
+        playing lacrosse, basketball, and roller hockey. You can always find me
+        learning something new, as I am constantly looking to expand my
+        knowledge of software engineering. I am very proficient in front-end
+        technologies such as ReactJS, Css, HTML, TailwindCSS, and Bootstrap. I
+        also have strong understanding of back-end technologies/tools like
+        NodeJS, Express, HapiJS, Docker/Kubernetes. Over the past year I have
+        become very comfortable with the many services offered by AWS.
         <br /> <br />
         Feel free to message me if you have any questions!
       </div>
